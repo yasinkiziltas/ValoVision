@@ -30,24 +30,27 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		5E23DDB82EC52E1C00467339 /* Exceptions for "ValoVision" folder in "ValoVision" target */ = {
+		5E23DE102EC53E2800467339 /* Exceptions for "ValoVision" folder in "ValoVision" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
+				ValoVision.xcdatamodeld,
 			);
 			target = 5E23DD8C2EC52E1B00467339 /* ValoVision */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		5E23DD8F2EC52E1B00467339 /* ValoVision */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				5E23DDB82EC52E1C00467339 /* Exceptions for "ValoVision" folder in "ValoVision" target */,
+/* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+		5E23DE112EC53E2800467339 /* Exceptions for "ValoVision" folder in "Compile Sources" phase from "ValoVision" target */ = {
+			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
+			buildPhase = 5E23DD892EC52E1B00467339 /* Sources */;
+			membershipExceptions = (
+				ValoVision.xcdatamodeld,
 			);
-			path = ValoVision;
-			sourceTree = "<group>";
 		};
+/* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
 		5E23DDA92EC52E1C00467339 /* ValoVisionTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = ValoVisionTests;
@@ -56,6 +59,15 @@
 		5E23DDB32EC52E1C00467339 /* ValoVisionUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = ValoVisionUITests;
+			sourceTree = "<group>";
+		};
+		5E23DE082EC53E2800467339 /* ValoVision */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				5E23DE102EC53E2800467339 /* Exceptions for "ValoVision" folder in "ValoVision" target */,
+				5E23DE112EC53E2800467339 /* Exceptions for "ValoVision" folder in "Compile Sources" phase from "ValoVision" target */,
+			);
+			path = ValoVision;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -88,7 +100,7 @@
 		5E23DD842EC52E1B00467339 = {
 			isa = PBXGroup;
 			children = (
-				5E23DD8F2EC52E1B00467339 /* ValoVision */,
+				5E23DE082EC53E2800467339 /* ValoVision */,
 				5E23DDA92EC52E1C00467339 /* ValoVisionTests */,
 				5E23DDB32EC52E1C00467339 /* ValoVisionUITests */,
 				5E23DD8E2EC52E1B00467339 /* Products */,
@@ -121,7 +133,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				5E23DD8F2EC52E1B00467339 /* ValoVision */,
+				5E23DE082EC53E2800467339 /* ValoVision */,
 			);
 			name = ValoVision;
 			packageProductDependencies = (
@@ -208,6 +220,9 @@
 			);
 			mainGroup = 5E23DD842EC52E1B00467339;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				5E23DE192EC5401000467339 /* XCRemoteSwiftPackageReference "RxSwift" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 5E23DD8E2EC52E1B00467339 /* Products */;
 			projectDirPath = "";
@@ -591,6 +606,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5E23DE192EC5401000467339 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.9.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = 5E23DD852EC52E1B00467339 /* Project object */;
 }
