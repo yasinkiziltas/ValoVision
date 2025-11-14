@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		5E23DE262EC54CC100467339 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5E23DE252EC54CC100467339 /* RxSwift */; };
+		5E23DE282EC54CD700467339 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 5E23DE272EC54CD700467339 /* RxCocoa */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		5E23DDA72EC52E1C00467339 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -77,6 +82,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E23DE282EC54CD700467339 /* RxCocoa in Frameworks */,
+				5E23DE262EC54CC100467339 /* RxSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,6 +110,7 @@
 				5E23DE082EC53E2800467339 /* ValoVision */,
 				5E23DDA92EC52E1C00467339 /* ValoVisionTests */,
 				5E23DDB32EC52E1C00467339 /* ValoVisionUITests */,
+				5E23DE242EC54CC100467339 /* Frameworks */,
 				5E23DD8E2EC52E1B00467339 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -115,6 +123,13 @@
 				5E23DDB02EC52E1C00467339 /* ValoVisionUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		5E23DE242EC54CC100467339 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +152,8 @@
 			);
 			name = ValoVision;
 			packageProductDependencies = (
+				5E23DE252EC54CC100467339 /* RxSwift */,
+				5E23DE272EC54CD700467339 /* RxCocoa */,
 			);
 			productName = ValoVision;
 			productReference = 5E23DD8D2EC52E1B00467339 /* ValoVision.app */;
@@ -617,6 +634,19 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5E23DE252EC54CC100467339 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5E23DE192EC5401000467339 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		5E23DE272EC54CD700467339 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5E23DE192EC5401000467339 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5E23DD852EC52E1B00467339 /* Project object */;
 }
