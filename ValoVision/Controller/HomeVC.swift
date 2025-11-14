@@ -6,26 +6,49 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
-class HomeVC: UIViewController {
+class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
+    @IBOutlet weak var tableView: UITableView!
+    let agentVM = AgentVM()
     var agentList = [Agent]()
+    let disposeBag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let url = URL(string: "https://valorant-api.com/v1/agents")!
+        tableView.delegate = self
+        tableView.dataSource = self
         
-        NetworkService().getData(url: url) { (result: Result<AgentData, DataError>) in
-            switch result {
-            case .success(let agents):
-                self.agentList = agents.data
-            case .failure(let error):
+        setupBindings()
+        agentVM.requestAgentData()
+
+    }
+    
+    private func setupBindings() {
+        agentVM.agents
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { agentArray in
+                self.agentList = agentArray
+                self.tableView.reloadData()
+            }, onError: { error in
                 print("Hata:", error)
-            }
-        }
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return agentList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        var content = cell.defaultContentConfiguration()
+        content.text = agentList[indexPath.row].displayName
+        content.secondaryText = agentList[indexPath.row].developerName
+        cell.contentConfiguration = content
+        return cell
     }
 }
-
-//print("Gelen agent sayısı:", agents.data.count)
-//print("İlk agent:", agents.data.first?.displayName ?? "yok")

@@ -9,20 +9,20 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-let agents: PublishSubject<[AgentData]> = PublishSubject()
-let error: PublishSubject<String> = PublishSubject()
-
 class AgentVM {
+    
+    let agents: PublishSubject<[Agent]> = PublishSubject()
+    let error: PublishSubject<String> = PublishSubject()
     
     func requestAgentData() {
         
         let url = URL(string: "https://valorant-api.com/v1/agents")!
 
-        NetworkService().getData(url: url) { (result: Result<[AgentData], DataError>) in
+        NetworkService().getData(url: url) { (result: Result<AgentData, DataError>) in
             
             switch result {
             case .success(let response):
-                agents.onNext(response)
+                self.agents.onNext(response.data)
             case .failure(let error):
                 print(error)
             }
