@@ -12,6 +12,7 @@ import RxCocoa
 class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     @IBOutlet weak var tableView: UITableView!
+    
     let agentVM = AgentVM()
     var agentList = [Agent]()
     let disposeBag = DisposeBag()
@@ -28,7 +29,8 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     }
     
     private func setupBindings() {
-        agentVM.agents
+        agentVM
+            .agents
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { agentArray in
                 self.agentList = agentArray
@@ -37,7 +39,15 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
                 print("Hata:", error)
             })
             .disposed(by: disposeBag)
+        
+        agentVM
+            .error
+            .observe(on: MainScheduler.instance)
+            .subscribe { errorString in
+                    print(errorString)
+            }.disposed(by: disposeBag)
     }
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return agentList.count

@@ -23,8 +23,23 @@ class AgentVM {
             switch result {
             case .success(let response):
                 self.agents.onNext(response.data)
+                
             case .failure(let error):
-                print(error)
+                switch error {
+                    
+                case .parsingError:
+                    DispatchQueue.main.async {
+                        self.error.onNext("Data parsing error")
+                    }
+                case .serverError:
+                    DispatchQueue.main.async {
+                        self.error.onNext("Server Error")
+                    }
+                case .unknownError:
+                    DispatchQueue.main.async {
+                        self.error.onNext("Unknown Error")
+                    }
+                }
             }
         }
     }
