@@ -16,5 +16,12 @@ class Helper {
         alert.addAction(UIAlertAction(title: "Tamam", style: .default))
         return alert
     }
+    
+    static func makeConfirmAlert(title: String, message: String) -> UIAlertController {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(.init(title: "Evet", style: .destructive))
+        alert.addAction(.init(title: "Hayır", style: .cancel))
+        return alert
+    }
 
 }

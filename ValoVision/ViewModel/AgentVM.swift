@@ -21,6 +21,7 @@ class AgentVM {
         NetworkService().getData(url: url) { (result: Result<AgentData, DataError>) in
             
             switch result {
+                
             case .success(let response):
                 self.agents.onNext(response.data)
                 

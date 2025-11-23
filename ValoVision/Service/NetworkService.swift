@@ -22,6 +22,7 @@ class NetworkService {
     func getData<T: Decodable>(url: URL, completion: @escaping (Result<T, DataError>) -> Void) {
         
         URLSession.shared.dataTask(with: url) { data, response, error in
+            
             if let _ = error {
                 completion(.failure(.serverError))
                 return

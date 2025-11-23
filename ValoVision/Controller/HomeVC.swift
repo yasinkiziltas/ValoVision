@@ -25,7 +25,6 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         
         setupBindings()
         agentVM.requestAgentData()
-
     }
     
     private func setupBindings() {
@@ -44,7 +43,7 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
             .error
             .observe(on: MainScheduler.instance)
             .subscribe { errorString in
-                    print(errorString)
+                    print(errorString)  
             }.disposed(by: disposeBag)
     }
     
